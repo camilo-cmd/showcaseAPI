@@ -10,8 +10,18 @@ const Tecnologia = sequelize.define(
             primaryKey: true,
             autoIncrement:true
         },
-        nombre: DataTypes.STRING(15),
-        descripcion: DataTypes.STRING(20),
+        nombre: {
+            type: DataTypes.STRING(15),
+            validate: {
+                isAlpha: true
+            }
+        },
+        descripcion: {
+            type: DataTypes.STRING(20),
+            validate: {
+                isAlpha: true
+            }
+        },
         DVH: {
             type: DataTypes.STRING(6),
             allowNull: false,

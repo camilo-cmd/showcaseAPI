@@ -14,10 +14,25 @@ const Transaccion = sequelize.define(
             type: DataTypes.INTEGER.UNSIGNED,
             primaryKey: true,
         },
-        total:DataTypes.INTEGER(8),
-        fechaDeEmision: DataTypes.DATE,
-        fechaVencimiento: DataTypes.DATE,
-        metodoDePago: DataTypes.STRING(15),
+        total: DataTypes.INTEGER(8),
+        fechaDeEmision: {
+            type: DataTypes.DATETIME,
+            validate: {
+                isDate: true
+            }
+        },
+        fechaVencimiento: {
+            type: DataTypes.DATETIME,
+            validate: {
+                isDate: true
+            }
+        },
+        metodoDePago: {
+            type: DataTypes.STRING(15),
+            validate: {
+                isAlpha: true
+            }
+        },
         DVH: {
             type: DataTypes.STRING(6),
             allowNull: false,

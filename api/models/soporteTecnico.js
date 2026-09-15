@@ -13,11 +13,31 @@ const SoporteTecnico = sequelize.define(
             primaryKey: true,
             autoIncrement:true
         },
-        nombre: DataTypes.STRING(15),
-        apellido: DataTypes.STRING(15),
-        dni: DataTypes.INTEGER(10),
-        telefono: DataTypes.INTEGER(17),
-        mail: DataTypes.STRING(20),
+        nombre: {
+            type: DataTypes.STRING(15),
+            validate: {
+                isAlpha: true
+            }
+        },
+        apellido: {
+            type: DataTypes.STRING(15),
+            validate: {
+                isAlpha: true
+            }
+        },
+        dni:{
+            type: DataTypes.STRING(10),
+            validate: {
+                isAlphanumeric: true
+            }
+        },
+        telefono: DataTypes.STRING(17),
+        mail: {
+            type: DataTypes.STRING(20),
+            validate: {
+                isEmail: true
+            }
+        },
         DVH: {
             type: DataTypes.STRING(6),
             allowNull: false,

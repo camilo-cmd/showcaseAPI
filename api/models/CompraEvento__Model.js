@@ -17,7 +17,12 @@ const CompraEvento = sequelize.define(
             type: DataTypes.MEDIUMINT.UNSIGNED,
             unique: 'noFuncionesYCliente'
         },
-        tipo: DataTypes.STRING(10),
+        tipo: {
+            type: DataTypes.STRING(10),
+            validate: {
+                isAlpha: true
+            }
+        },
         pendiente: {
             type: DataTypes.BOOLEAN,
             default: 1

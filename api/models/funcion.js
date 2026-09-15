@@ -22,9 +22,24 @@ const funcion = sequelize.define(
             type: DataTypes.TINYINT.UNSIGNED,
             primaryKey: true,
         },
-        idioma: DataTypes.STRING(10),
-        proyeccion: DataTypes.STRING(10),
-        horarioInicio: DataTypes.DATETIME,
+        idioma: {
+            type: DataTypes.STRING(10),
+            validate: {
+                isAlpha: true
+            }
+        },
+        proyeccion: {
+            type: DataTypes.STRING(10),
+            validate: {
+                isAlpha: true
+            }
+        },
+        horarioInicio: {
+            type: DataTypes.DATETIME,
+            validate: {
+                isDate: true
+            }
+        },
         DVH: {
             type: DataTypes.STRING(6),
             allowNull: false,
